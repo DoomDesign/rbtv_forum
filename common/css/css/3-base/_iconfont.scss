@@ -1,0 +1,398 @@
+$rbtv-external: "\e913";
+$rbtv-clock: "\e914";
+$rbtv-disc: "\e915";
+$rbtv-list: "\e916";
+$rbtv-livestream: "\e917";
+$rbtv-play: "\e918";
+$rbtv-play_box: "\e919";
+$rbtv-play_circle: "\e91a";
+$rbtv-podcast: "\e91b";
+$rbtv-accept: "\e900";
+$rbtv-add_user: "\e901";
+$rbtv-arrow_down: "\e902";
+$rbtv-arrow_left: "\e903";
+$rbtv-arrow_right: "\e904";
+$rbtv-arrow_up: "\e905";
+$rbtv-chat: "\e906";
+$rbtv-close: "\e907";
+$rbtv-focusmode: "\e908";
+$rbtv-interactive: "\e909";
+$rbtv-maximize: "\e90a";
+$rbtv-menu: "\e90b";
+$rbtv-minimize: "\e90c";
+$rbtv-minus: "\e90d";
+$rbtv-plus: "\e90e";
+$rbtv-search: "\e90f";
+$rbtv-settings: "\e910";
+$rbtv-user_circle: "\e911";
+$rbtv-viewers: "\e912";
+$rbtv-logout: "\e91c";
+$rbtv-email: "\e91d";
+$rbtv-brand_reddit: "\e91e";
+$rbtv-brand_facebook: "\e91f";
+$rbtv-brand_google: "\e920";
+$rbtv-brand_googleplus: "\e921";
+$rbtv-brand_twitter: "\e922";
+$rbtv-brand_youtube: "\e923";
+$rbtv-brand_instagram: "\e924";
+$rbtv-brand_spotify: "\e925";
+$rbtv-brand_steam: "\e926";
+$rbtv-brand_twitch: "\e927";
+$rbtv-notifications: "\e928";
+$rbtv-joystick: "\e929";
+$rbtv-loadingspinner: "\e92a";
+$rbtv-brand_whatsapp: "\e92b";
+$rbtv-danger: "\e92c";
+$rbtv-brand_applepodcasts: "\e92d";
+$rbtv-shoppingcart: "\e92e";
+$rbtv-crown: "\e92f";
+$rbtv-heart: "\e930";
+$rbtv-blog: "\e931";
+$rbtv-raketenbohne: "\e932";
+$rbtv-forum: "\e933";
+$rbtv-more: "\e934";
+
+
+@font-face {
+	font-family: 'rbtvIcons';
+	src:  url('#{$path-fonts}/rbtvIcons.eot');
+	src:  url('#{$path-fonts}/rbtvIcons.eot#iefix') format('embedded-opentype'),
+		url('#{$path-fonts}/rbtvIcons.woff') format('woff'),
+		url('#{$path-fonts}/rbtvIcons.svg#rbtvIcons') format('svg'),
+		url('#{$path-fonts}/rbtvIcons.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+	font-display: auto;
+}
+
+
+.rbtv-icon {
+	// display: inline-block;
+	/* use !important to prevent issues with browser extensions that change fonts */
+	font-family: 'rbtvIcons' !important;
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	@include fontSize(24px);
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+	&.rbtv-external {
+		&:before {
+		content: $rbtv-external;     
+		// color: #e6e6e6;
+		}
+	}
+	&.rbtv-clock {
+		&:before {
+		content: $rbtv-clock;     
+		// color: #e6e6e6;
+		}
+	}
+	&.rbtv-disc {
+		&:before {
+		content: $rbtv-disc;     
+		// color: #e6e6e6;
+		}
+	}
+	&.rbtv-list {
+		&:before {
+		content: $rbtv-list;     
+		// color: #e6e6e6;
+		}
+	}
+	&.rbtv-livestream {
+		&:before {
+		content: $rbtv-livestream;     
+		// color: #e6e6e6;
+		}
+	}
+	&.rbtv-play {
+		&:before {
+		content: $rbtv-play;     
+		// color: #e6e6e6;
+		}
+	}
+	&.rbtv-play_box {
+		&:before {
+		content: $rbtv-play_box;     
+		// color: #e6e6e6;
+		}
+	}
+	&.rbtv-play_circle {
+		&:before {
+		content: $rbtv-play_circle;     
+		// color: #e6e6e6;
+		}
+	}
+	&.rbtv-podcast {
+		&:before {
+		content: $rbtv-podcast;     
+		// color: #e6e6e6;
+		}
+	}
+	&.rbtv-accept {
+		&:before {
+		content: $rbtv-accept;     
+		// color: #e6e6e6;
+		}
+	}
+	&.rbtv-add_user {
+		&:before {
+		content: $rbtv-add_user;     
+		// color: #e6e6e6;
+		}
+	}
+	&.rbtv-arrow_down {
+		&:before {
+		content: $rbtv-arrow_down;     
+		// color: #e6e6e6;
+		}
+	}
+	&.rbtv-arrow_left {
+		&:before {
+		content: $rbtv-arrow_left;     
+		// color: #e6e6e6;
+		}
+	}
+	&.rbtv-arrow_right {
+		&:before {
+		content: $rbtv-arrow_right;     
+		// color: #e6e6e6;
+		}
+	}
+	&.rbtv-arrow_up {
+		&:before {
+		content: $rbtv-arrow_up;     
+		// color: #e6e6e6;
+		}
+	}
+	&.rbtv-chat {
+		&:before {
+		content: $rbtv-chat;     
+		// color: #e6e6e6;
+		}
+	}
+	&.rbtv-close {
+		&:before {
+		content: $rbtv-close;     
+		// color: #e6e6e6;
+		}
+	}
+	&.rbtv-focusmode {
+		&:before {
+		content: $rbtv-focusmode;     
+		// color: #e6e6e6;
+		}
+	}
+	&.rbtv-interactive {
+		&:before {
+		content: $rbtv-interactive;     
+		// color: #e6e6e6;
+		}
+	}
+	&.rbtv-maximize {
+		&:before {
+		content: $rbtv-maximize;     
+		// color: #e6e6e6;
+		}
+	}
+	&.rbtv-menu {
+		&:before {
+		content: $rbtv-menu;     
+		// color: #e6e6e6;
+		}
+	}
+	&.rbtv-minimize {
+		&:before {
+		content: $rbtv-minimize;     
+		// color: #e6e6e6;
+		}
+	}
+	&.rbtv-minus {
+		&:before {
+		content: $rbtv-minus;     
+		// color: #e6e6e6;
+		}
+	}
+	&.rbtv-plus {
+		&:before {
+		content: $rbtv-plus;     
+		// color: #e6e6e6;
+		}
+	}
+	&.rbtv-search {
+		&:before {
+		content: $rbtv-search;     
+		// color: #e6e6e6;
+		}
+	}
+	&.rbtv-settings {
+		&:before {
+		content: $rbtv-settings;     
+		// color: #e6e6e6;
+		}
+	}
+	&.rbtv-user_circle {
+		&:before {
+		content: $rbtv-user_circle;     
+		// color: #e6e6e6;
+		}
+	}
+	&.rbtv-viewers {
+		&:before {
+		content: $rbtv-viewers;     
+		// color: #e6e6e6;
+		}
+	}	
+	&.rbtv-logout {
+		&:before {
+		content: $rbtv-logout;     
+		// color: #e6e6e6;
+		}
+	}
+	&.rbtv-email {
+		&:before {
+		content: $rbtv-email;     
+		// color: #e6e6e6;
+		}
+	}
+
+	&.rbtv-brand_reddit {
+		&:before {
+			content: $rbtv-brand_reddit;     
+			// color: #e6e6e6;
+		}
+		}
+	&.rbtv-brand_facebook {
+		&:before {
+			content: $rbtv-brand_facebook;     
+			// color: #e6e6e6;
+		}
+	}
+	&.rbtv-brand_google {
+		&:before {
+			content: $rbtv-brand_google;     
+			// color: #e6e6e6;
+		}
+	}
+	&.rbtv-brand_googleplus {
+		&:before {
+			content: $rbtv-brand_googleplus;     
+			// color: #e6e6e6;
+		}
+	}
+	&.rbtv-brand_twitter {
+		&:before {
+			content: $rbtv-brand_twitter;     
+			// color: #e6e6e6;
+		}
+	}
+	&.rbtv-brand_youtube {
+		&:before {
+			content: $rbtv-brand_youtube;     
+			// color: #e6e6e6;
+		}
+	}
+	&.rbtv-brand_instagram {
+		&:before {
+			content: $rbtv-brand_instagram;     
+			// color: #e6e6e6;
+		}
+	}
+	&.rbtv-brand_spotify {
+		&:before {
+			content: $rbtv-brand_spotify;     
+			// color: #e6e6e6;
+		}
+	}
+	&.rbtv-brand_steam {
+		&:before {
+			content: $rbtv-brand_steam;     
+			// color: #e6e6e6;
+		}
+	}
+	&.rbtv-brand_twitch {
+		&:before {
+			content: $rbtv-brand_twitch;     
+			// color: #e6e6e6;
+		}
+	}
+	&.rbtv-notifications {
+		&:before {
+		content: $rbtv-notifications;     
+		// color: #e6e6e6;
+		}
+	}
+	&.rbtv-joystick {
+		&:before {
+		content: $rbtv-joystick;     
+		// color: #e6e6e6;
+		}
+	}
+	&.rbtv-loadingspinner {
+		&:before {
+			content: $rbtv-loadingspinner;     
+			//   color: #e6e6e6;
+		}
+	}
+	&.rbtv-brand_whatsapp {
+		&:before {
+			content: $rbtv-brand_whatsapp;     
+			//   color: #e6e6e6;
+		}
+	}
+	&.rbtv-danger {
+		&:before {
+			content: $rbtv-danger;     
+		}
+	}
+	&.rbtv-brand_applepodcasts {
+		&:before {
+			content: $rbtv-brand_applepodcasts;     
+		}
+	}
+	&.rbtv-shoppingcart {
+		&:before {
+			content: $rbtv-shoppingcart;     
+		}
+	}
+	&.rbtv-crown {
+		&:before {
+			content: $rbtv-crown;     
+		}
+	}
+	&.rbtv-heart {
+		&:before {
+			content: $rbtv-heart;     
+		}
+	}
+
+	&.rbtv-blog {
+		&:before {
+			content: $rbtv-blog;     
+		}
+	}
+	&.rbtv-raketenbohne {
+		&:before {
+			content: $rbtv-raketenbohne;     
+		}
+	}
+	&.rbtv-forum {
+		&:before {
+			content: $rbtv-forum;     
+		}
+	}
+	&.rbtv-more {
+		&:before {
+			content: $rbtv-more;     
+		}
+	}
+
+}

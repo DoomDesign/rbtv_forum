@@ -1,0 +1,152 @@
+rbtv-interactive-voting {
+
+	header {
+		animation-name: slideFromLeft;
+		animation-duration: 1s;
+		animation-timing-function: $rbtv-easing-hardEaseOut;
+	}
+
+	.vote-question {
+		// @include fontSize($rbtv-fontSize-mediumlarge);
+	}
+
+	.btn {
+		&.btn-voting {
+
+			position: relative;
+
+			justify-content: flex-start;
+			text-align: left;
+
+			@include fontSize($rbtv-fontSize-medium);
+
+			line-height: 1;
+			padding: ($input-btn-padding-y*2) ($input-btn-padding-x*2);
+			color: $rbtv-color-text-highlight;
+			background-color: $rbtv-color-darkgrey;
+			padding-left: calc(2.5rem + (#{$input-btn-padding-x}*2));
+			
+			@include media-breakpoint-down(sm) {
+				padding: ($input-btn-padding-y*2.5) ($input-btn-padding-x*2.5);
+				padding-left: calc(2.5rem + (#{$input-btn-padding-x}*2.5));
+			}
+
+			// &.btn-lg {
+			// 	padding: ($input-btn-padding-y*2) ($input-btn-padding-x*2);
+			// 	padding-left: calc(2.5rem + (#{$input-btn-padding-x}*2));
+			// 	@include media-breakpoint-down(sm) {
+			// 		padding: ($input-btn-padding-y*2) ($input-btn-padding-x*2);
+			// 		padding-left: calc(2.5rem + (#{$input-btn-padding-x}*2));
+			// 	}
+			// }
+
+			&::after {
+				content: '';
+				position: absolute;
+				left: 0;
+				top: 0;
+				bottom: 0;
+				width: 2.5rem;
+			}
+	
+			&:active,
+			&.active,
+			&:focus,
+			&.focus {
+				box-shadow: none !important;
+			}
+	
+			&:not([disabled]):not(.disabled):not(.swiper-button-disabled) {
+	
+				&:hover,
+				&:focus {
+					background-color: $rbtv-color-text-highlight;
+					color: $rbtv-color-text-dark;
+				}
+	
+				&:active,
+				&.active {
+					background-color: $rbtv-color-blue;
+					color: $rbtv-color-text-highlight;
+
+					&::after {
+						opacity: 0;
+					}
+				}
+				&:active {
+					transform: scale(.975);
+				}
+	
+			}
+		}
+	}
+
+	.voting-options-container {
+	
+		.voting-single-option {
+
+			transform: translateY(25%);
+			opacity: 0;
+
+			animation-name: fadeFromBottom;
+			animation-duration: $rbtv-animationDuration;
+			animation-fill-mode: forwards;
+
+			@for $i from 1 through 20 {
+                &:nth-child(#{$i}) { 
+                    animation-delay: $rbtv-animationDuration/2 * $i; 
+                }
+            }
+
+			
+			&:nth-child(1),
+			&:nth-child(7) {
+
+				.btn-voting::after {
+					background-color: $rbtv-color-red;
+				}
+
+			}
+
+			&:nth-child(2),
+			&:nth-child(8) {
+				.btn-voting::after {
+					background-color: $rbtv-color-blue;
+				}
+				
+			}
+
+			&:nth-child(3),
+			&:nth-child(9) {
+				.btn-voting::after {
+					background-color: $rbtv-color-green;
+				}
+				
+			}
+
+			&:nth-child(4),
+			&:nth-child(10) {
+				.btn-voting::after {
+					background-color: $rbtv-color-brightyellow;
+				}
+			}
+
+			&:nth-child(5) {
+				.btn-voting::after {
+					background-color: $rbtv-color-purple;
+				}
+			}
+
+			&:nth-child(6) {
+				.btn-voting::after {
+					background-color: $rbtv-color-orange;
+				}
+			}
+			
+		}
+				
+
+	}
+
+
+}

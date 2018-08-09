@@ -1,0 +1,67 @@
+rbtv-loginform,
+rbtv-registerform {
+    display: block;
+}
+
+.oauth-selection-container {
+    // margin-bottom: $spacer*2;
+
+    .btn {
+        margin: 0 $spacer;
+    }
+}
+
+.login-divider {
+    width: 100%;
+    position: relative;
+
+    &::before {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        content: '';
+        display: block;
+        width: 6px;
+        border-radius: 3px;
+        background-color: $rbtv-color-darkgrey;
+    }
+
+    .circle {
+        display: flex;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+        justify-content: center;
+        
+
+        > span {
+            display: block;
+            padding: 0 $spacer;
+            line-height: 1;
+            text-align: center;
+
+            @include media-breakpoint-up(md) {
+
+                &::before {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    content: '';
+                    z-index: -1;
+                    display: block;
+                    width: $spacer*4;
+                    height: $spacer*4;
+                    // padding-bottom: 100%;
+                    border-radius: 50%;
+                    overflow: hidden;
+                    background-color: $rbtv-color-darkgrey;
+                }
+            }
+        }
+
+    }
+}

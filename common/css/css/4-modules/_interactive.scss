@@ -1,0 +1,19 @@
+.interactive-container {
+
+    // @include media-breakpoint-down(sm) {
+    //     padding-top: $spacer;
+    // }
+
+
+    h2 {
+        @include fontSize($rbtv-fontSize-large);
+        .rbtv-icon {
+            color: $rbtv-color-yellow;
+            // @include fontSize($rbtv-fontSize-large*1.25);
+        }
+    }
+
+    form {
+        margin-bottom: $spacer;
+    }
+}

@@ -1,0 +1,241 @@
+.search-container {
+
+    .visibleIcon {
+        opacity: 1 !important;
+    }
+
+    position: relative;
+
+    &.popout {
+        .searchresults {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            width: 25rem;
+            max-width: 90vw;
+            margin-top: 0;
+            
+        }
+    }
+
+    .searchresults {
+        width: 100%;
+        margin-top: $spacer;
+        
+        background-color: $rbtv-color-dark;
+        padding-top: $spacer/2;
+        padding-bottom: $spacer/2;
+        box-shadow: $rbtv-overlay-boxshadow;
+
+        border-bottom-left-radius: $rbtv-borderRadius-small;
+        border-bottom-right-radius: $rbtv-borderRadius-small;
+
+        > header {
+            margin-bottom: $spacer;
+            h4 {
+                margin: 0;
+            }
+        }
+
+        .scrollcontainer {
+            overflow-x: hidden;
+            overflow-y: auto;
+            max-height: 60vh;
+
+            @media screen and (max-height: 700px) {
+                max-height: 50vh;
+            }
+        }
+
+        &_shows,
+        &_episodes,
+        &_blog {
+            margin-bottom: $spacer/2;
+            
+            header {
+                padding: $spacer/3 $grid-gutter-width/3;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                margin-bottom: $spacer/2;
+
+                position: sticky;
+                top: 0;
+                z-index: 50;
+                background-color: $rbtv-color-darkestgrey;
+
+
+                h5 {
+                    margin-bottom: 0;
+                    display: inline-block;
+                }
+
+                span {
+                    @include fontSize($rbtv-fontSize-mediumsmall);
+                }
+            }
+        }
+
+        &_shows {
+            &_item {
+
+            }
+        }
+
+        &_episodes,
+        &_blogs {
+            
+            rbtv-searchresult-episode,
+            rbtv-searchresult-blog {
+                &:nth-of-type(odd) {
+                    .searchresults_episodes_item,
+                    .searchresults_blogs_item {
+                        background-color: $rbtv-color-dark;
+                    }
+                }
+            }
+            
+            &_item {
+
+
+                margin: 0;
+                padding: ($spacer*.75) ($grid-gutter-width/2);
+
+                display: flex;
+
+                transition: background-color $rbtv-animationDuration/2, transform $rbtv-animationDuration/2;
+                background-color: $rbtv-color-darkestgrey;
+
+                backface-visibility: hidden;
+                
+                &_image {
+                    width: $spacer*6;
+                    margin-right: ($grid-gutter-width/2);
+                    flex-shrink: 0;
+                }
+
+                &_info {
+                    @include fontSize($rbtv-fontSize-small);
+                    line-height: 1.5;
+
+                    flex: 1;
+                    transition: color $rbtv-animationDuration/2;
+                    
+
+                    .title {
+                        font-weight: 500;
+                        @include fontSize($rbtv-fontSize-mediumsmall);
+                        color: $rbtv-color-button-default;
+                        line-height: 1.25;
+
+                        transition: color $rbtv-animationDuration/2;
+
+                        margin-bottom: $spacer/4;
+                    }
+
+
+                    .meta {
+                        line-height: 1;
+                        color: $rbtv-color-grey;
+                        transition: color $rbtv-animationDuration/2;
+
+                        .date {
+                            margin-left: $spacer;
+                        }
+                    }
+                }
+                
+                &:hover,
+                &:focus {
+                    background-color: lighten($rbtv-color-darkgrey, 5%) !important;
+
+                    .searchresults_episodes_item_info {
+                        color: $rbtv-color-text-highlight;
+
+                        .title {
+                            color: $rbtv-color-text-highlight;
+                            text-decoration: underline;
+                        }
+                        .meta {
+                            color: $rbtv-color-text;
+                        }
+                    }
+                }
+            }
+        }
+
+        &_blogs {
+            &_item {
+                &_info {
+                    .meta {
+                        margin-bottom: $spacer/4;
+                        .date {
+                            margin-left:0;
+                        }
+                    }
+                    .title {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+
+        &.responsiveResults {
+            @include media-breakpoint-up(xs) {
+
+                rbtv-searchresult-episode,
+                rbtv-searchresult-blog {
+                    margin-bottom: $spacer*2;
+                    // margin-bottom: $spacer/2;
+                    &:nth-of-type(odd) {
+                        .searchresults_episodes_item,
+                        .searchresults_blogs_item {
+                            background-color: transparent;
+                        }
+                    }
+
+                }
+            
+                .searchresults_episodes,
+                .searchresults_blogs {
+                
+                    &_item {
+
+                            
+                            padding: 0;
+                            width: 100%;
+                            height: 100%;
+                            flex-direction: column;
+                            border-radius: $rbtv-borderRadius-small;
+                            background-color: transparent;
+                            // margin-bottom: $spacer;
+                            
+                            &_image{
+                                margin-bottom: $spacer/2;
+                                width: 100%;
+                                margin-right: 0;
+                            }
+                        }
+
+                        
+            
+                }
+
+                .searchresults_blogs {
+                    &_item {
+                        &_info {
+                            .meta { margin-bottom: $spacer/4; }
+                            .title {
+                                margin-bottom: 0;
+                            }
+                        }
+                    }
+                }
+
+            }
+            
+
+        }
+    }
+
+}

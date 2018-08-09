@@ -1,0 +1,208 @@
+/* Base Styles -------------------- */
+
+/* General sitewide styles for universal elements */
+
+
+// AntiAliasing für alles
+html, body {
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+}
+
+html {
+    font-size: 1rem;
+
+    @include media-breakpoint-down(md) {
+        font-size: .9rem;
+    }
+    @include media-breakpoint-down(xs) {
+        font-size: .8rem;
+    }
+}
+
+body {
+    background-color: $rbtv-color-bodybg;
+    color: $rbtv-color-text;
+
+    font-family: $rbtv-font-primary;
+    font-weight: 400;
+
+    overflow-y: scroll;
+
+    transition: padding ($rbtv-animationDuration) cubic-bezier(0.000, 1.000, 0.000, 1.000);  // for the videoplayer resize events
+
+    // @include media-breakpoint-up(sm) {
+        background-image: url(#{$path-image}/body_bg5_small.jpg);
+        background-repeat: no-repeat;
+        background-position: top center;
+        background-attachment: fixed;
+        background-size: 100% auto;
+    // }
+
+    @include media-breakpoint-up(lg) {
+        background-image: url(#{$path-image}/body_bg5.jpg);
+    }
+
+
+    @include media-breakpoint-down(md) {
+        padding-bottom: $spacer*4; // because footer moves into offcanvas nav - with this margin the OpenStream-Button doesn't overlay any content
+    }
+
+    &.overflow-hidden {
+        margin-right: 12px;
+    }
+
+}
+
+.custombackground {
+    position: fixed;
+    z-index: 0;
+    background-color: $rbtv-color-yellow;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+}
+
+
+main {
+    margin-top: $spacer;
+    position: relative;
+    // @include media-breakpoint-down(md) {
+    //     margin-top: $spacer;
+    // }
+
+    section {
+        margin-bottom: $spacer;
+    }
+}
+
+
+// Selections
+::-moz-selection { background: $rbtv-color-blue; color: $rbtv-color-text-highlight; }
+::selection { background: $rbtv-color-blue; color: $rbtv-color-text-highlight; }
+
+
+// Scrollbars
+::-webkit-scrollbar-track {
+    background-color: $rbtv-color-black;
+}
+::-webkit-scrollbar-thumb {
+    background-color: $rbtv-color-darkgrey;
+    border-radius: 6px;
+    border: 2px solid $rbtv-color-black;
+    min-height: 50px;
+}
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+
+// Hyperlinks
+
+a,
+.link {
+
+    
+
+        cursor: pointer;
+
+        &.link,
+        &:link {
+            color: $rbtv-color-button-default;
+        }
+
+        &.link-wrapper {
+            &:focus {
+                text-decoration: none;
+            }
+        }
+
+        &:hover,
+        &:focus {
+            color: $rbtv-color-text-highlight;
+            text-decoration: underline;
+            
+            .rbtv-icon {
+                text-decoration: none;
+            }
+        }
+        &:focus {
+            // outline: 1px dotted rgba($rbtv-color-text, .65);
+            // outline-offset: 1px;
+            outline: none;
+        }
+        &:active {
+            color: $rbtv-color-yellow;
+        }
+
+        &.btn {
+            color: initial;
+        }
+
+        &.secondary {
+            
+                color: $rbtv-color-text;
+            
+            &:hover,
+            &:focus {
+                color: $rbtv-color-text-highlight;
+            }
+            &:focus {
+                // outline: 1px dotted rgba($rbtv-color-text, .65);
+                // outline-offset: 1px;
+            }
+            &:active {
+                color: $rbtv-color-yellow;
+            }
+        }
+
+    
+
+    &.link-wrapper {
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: $rbtv-font-secondary;
+    font-weight: bold;
+    color: $rbtv-color-text-highlight;
+    margin-bottom: $spacer;
+
+    .rbtv-icon {
+        font-size: inherit;
+    }
+}
+
+
+.alert {
+    padding: ($spacer*.75) ($spacer*2.5) ($spacer*.75) ($spacer*.75);
+}
+
+dt {
+    font-weight: 500;
+    text-transform: uppercase;
+    @include fontSize($rbtv-fontSize-small);
+    color: $rbtv-color-grey;
+}
+
+dl {
+    dd {
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+    }
+}

@@ -1,0 +1,43 @@
+rbtv-product-inline-element {
+    margin-bottom: $spacer;
+}
+
+.product-inline {
+    height: 100%;
+    margin-bottom: 0;
+    &_thumbnail {
+
+        &_img {
+
+        }
+    }
+
+    &_info {
+
+        padding: $spacer/2 0;
+
+        &_title {
+            @include fontSize($rbtv-fontSize-mediumlarge);
+            margin-bottom: $spacer;
+
+            @include media-breakpoint-down(sm) {
+                @include fontSize($rbtv-fontSize-medium);
+            }
+        }
+        &_price {
+
+            .price {
+                @include fontSize($rbtv-fontSize-mediumlarge);
+                // color: $rbtv-color-text-highlight;
+                line-height: 1;
+                margin-bottom: $spacer/2;
+            }
+            .taxrate {
+                @include fontSize($rbtv-fontSize-small);
+                // margin-left: 1em;
+                line-height: 1;
+            }
+
+        }
+    }
+}

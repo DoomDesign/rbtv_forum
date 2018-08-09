@@ -1,0 +1,128 @@
+.page-single {
+
+    .content-box > .content {
+        padding-top: $grid-gutter-width;
+        padding-bottom: $spacer*4;
+
+        @include media-breakpoint-down(sm) {
+            padding-bottom: $spacer*2;
+            padding-top: $grid-gutter-width/2;
+        }
+    }
+
+    &_title {
+        margin-bottom: $spacer*2.5;
+        line-height: 125%;
+        color: $rbtv-color-button-default;
+
+        hyphens: auto;
+        white-space: pre-wrap; /* css-3 */
+        white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+        white-space: -pre-wrap; /* Opera 4-6 */
+        white-space: -o-pre-wrap; /* Opera 7 */
+        word-wrap: break-word; /* Internet Explorer 5.5+ */
+
+        
+        @include media-breakpoint-down(sm) {
+            @include fontSize($rbtv-fontSize-large*1.25);
+            margin-bottom: $spacer*2;                    
+        }
+    }
+
+    &_content {
+    
+        line-height: 160%;
+        word-break: break-word;
+
+        // width: calc( 100% - ( ( ( (#{$rbtv-player-minHeight} / 9) * 16) + (#{$grid-gutter-width}*2) ) ) );
+        
+        
+        // padding-left: calc( ( (#{$rbtv-player-minHeight} / 9) * 16) + (#{$grid-gutter-width}*2) );
+
+        width: calc( 100% - ( ( ( (#{$rbtv-player-minHeight} / 9) * 16) + (#{$grid-gutter-width}) ) ) );
+        margin: 0;
+        padding-left: calc( ( (#{$rbtv-player-minHeight} / 9) * 16) + (#{$grid-gutter-width}) );
+
+        @include media-breakpoint-down(lg) {
+            font-size: .9rem;
+            width: 65%;
+            margin: 0 auto;
+            padding-left: 0;
+        }
+        @include media-breakpoint-down(md) {
+            width: 80%;            
+            font-size: 1rem;
+        }
+        @include media-breakpoint-down(sm) {
+            width: 100%;
+            // margin-top: $spacer*2;
+        }
+        // @include media-breakpoint-down(xs) {
+        //     width: 100%;
+        // }
+        
+        .date {
+            margin-bottom: $spacer;
+            display: block;
+            color: $rbtv-color-lightgrey;
+        }
+
+        a:not(.btn) {
+            &:link {
+                text-decoration: underline;
+            }
+            &:hover {
+                text-decoration: none;
+            }
+        }
+
+        ul, ol, dl {
+            padding-left: $spacer*2;            
+        }
+
+        blockquote {
+            display: block;
+            padding-left: $spacer;
+            border-left: 2px solid $rbtv-color-grey;
+            font-style: italic;
+        }
+
+        cite {
+            font-style: normal;
+            @include fontSize($rbtv-fontSize-small);
+            color: $rbtv-color-lightgrey;
+            display: block;
+            text-align: right;
+
+            &::before {
+                content: '—';
+            }
+        }
+
+        p:last-of-type {
+            margin-bottom: 0;
+        }
+
+        h2, h3, h4, h5, h6 {
+            margin-top: $spacer*2;
+            color: $rbtv-color-button-default;
+        }
+
+        code {
+            display: inline-block;
+            padding: 0 ($spacer/3);
+            background-color: $rbtv-color-darkestgrey;
+            border-radius: $rbtv-borderRadius-small;
+        }
+        pre code {
+            display: block;
+            padding: ($spacer/2) ($grid-gutter-width/2);
+            tab-size: 2;
+        }
+
+        
+    }
+
+
+
+}

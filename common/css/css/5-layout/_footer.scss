@@ -1,0 +1,14 @@
+
+.site-footer {
+
+    margin-top: $spacer;
+
+    .content-box {
+        @include gradient-y( $rbtv-color-darkBG, transparent);
+    }
+
+    .site-copyright {
+        @include fontSize($rbtv-fontSize-small);
+    }
+    
+}

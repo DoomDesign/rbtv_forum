@@ -1,0 +1,99 @@
+/* Single Podcast Page */
+
+.singlepodcast {
+
+    .content {
+        .title {
+            margin-top: $spacer/2;
+            margin-bottom: $spacer*1.5;
+        }
+    }
+
+    &-meta {
+        position: relative;
+        background-color: $rbtv-color-darkestgrey;
+        padding: $spacer ($grid-gutter-width/2) ;
+
+        rbtv-media-show-inline-element {
+            margin-bottom: 0;
+        }
+
+        &-data {
+            margin-bottom: 0;
+        }
+
+    }
+
+    .podcast-container {
+        padding: $grid-gutter-width $grid-gutter-width 0 $grid-gutter-width;
+        
+        @include media-breakpoint-down(xs) {
+            padding: 0;
+        }
+
+        .embed-responsive {
+            @include media-breakpoint-down(md) {
+                &::before {
+                    padding-top: 60%;
+                }
+            }
+            @include media-breakpoint-down(sm) {
+                &::before {
+                    padding-top: 80%;
+                }
+            }
+            
+            @include media-breakpoint-down(xs) {    
+                &::before {
+                    padding-top: 90%;
+                }
+            }
+        }
+    }
+
+}
+
+.btn {
+    &.btn-podcast {
+        line-height: 1;
+        color: $rbtv-color-text-highlight;
+        background-color: $rbtv-color-darkgrey;
+        box-shadow: none !important;
+
+        padding: ($input-btn-padding-y*1.5) ($input-btn-padding-x*1.5);
+
+        &-itunes {
+            background-color: #ba58e9;
+        }
+
+        &-spotify {
+            background-color: #1ED760;
+        }
+
+        &-xml {
+            background-color: $rbtv-color-red;
+        }
+        
+        @include media-breakpoint-down(sm) {
+            padding: ($input-btn-padding-y*2) ($input-btn-padding-x*2);
+        }
+
+        &:not([disabled]):not(.disabled) {
+        
+            &:hover {
+                transform: translateY(-1px);
+                color: $rbtv-color-black;
+                box-shadow: none !important;
+                background-color: $rbtv-color-text-highlight;
+            }
+
+            &:active,
+            &.active {
+                background-color: $rbtv-color-darkgrey;
+                transform: translateY(0px);
+                color: $rbtv-color-text-highlight;
+                box-shadow: none !important;
+            }
+        }
+    }
+}

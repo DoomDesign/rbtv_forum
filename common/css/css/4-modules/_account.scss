@@ -1,0 +1,161 @@
+.account-settings-panel,
+.account-settings-grid-title {
+    
+    padding: $spacer $grid-gutter-width;
+    line-height: 1.25;
+    display: block;    
+
+    // transition: background-color $rbtv-animationDuration/2;
+
+    @include media-breakpoint-down(md) {
+        padding: $spacer $grid-gutter-width/2;
+    }
+
+    &:nth-child(odd),
+    &.no-hover {
+        background-color: $rbtv-color-darkestgrey;
+    }
+
+    // &:not(.account-settings-grid-title):not(.no-hover):hover {
+    //     background-color: $rbtv-color-darkgrey;
+
+    //     .panel-description {
+    //         .title {
+    //             color: $rbtv-color-text-highlight;
+    //         }
+    //         .subtext {
+    //             color: $rbtv-color-text;
+    //         }
+    //     }
+    // }
+
+    .panel-flex {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .panel-description {
+        grid-area: description;
+
+        .title,
+        .subtext {
+            transition: color $rbtv-animationDuration/2;
+        }
+
+        .title {
+            font-weight: 500;
+            display: block;
+        }
+        .subtext {
+            display: block;
+            @include fontSize($rbtv-fontSize-mediumsmall);
+            color: $rbtv-color-grey;
+            margin-top: $spacer/3;
+        }
+    }
+
+    .panel-option {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+
+        &.option1 {
+            grid-area: option1;
+        }
+        &.option2 {
+            grid-area: option2;
+        }
+        // &.option3 {
+        //     grid-area: option3;
+        // }
+    }
+
+    .setting-currentvalue {
+        margin-right: $grid-gutter-width;
+    }
+
+    
+    .account-settings-grid {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 3fr repeat(2, 1fr);
+        grid-gap: $grid-gutter-width;
+        grid-template-areas: "description option1 option2";
+
+        
+        @include media-breakpoint-down(md) {
+            grid-gap: $grid-gutter-width/2;
+        }
+    }
+
+}
+
+.account-settings-footer {
+    margin-top: $spacer;
+    padding: $spacer $grid-gutter-width;
+    line-height: 1.25;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include media-breakpoint-down(md) {
+        padding: $spacer $grid-gutter-width/2;
+    }
+}
+
+.account-settings-grid-title {
+    // padding: $spacer $grid-gutter-width;
+    // line-height: 1;
+    background-color: transparent;
+    // font-weight: 500;
+    // color: $rbtv-color-grey;
+}
+
+
+
+/* Subgrid, Notifications Detail Settings */
+
+.notifications-sublist-toggle {
+    display: block;
+    // margin-top: $spacer/2;
+    margin-top: $spacer/3;
+    display: flex;
+    align-items: center;
+    @include fontSize($rbtv-fontSize-small);
+}
+
+.account-settings-notifications-sublist {
+
+    margin-top: $spacer/3;
+    margin-bottom: $spacer;
+
+    .account-settings-panel,
+    .account-settings-grid-title {
+        padding-left: 0;
+        padding-right: 0;
+
+        // background-color: $rbtv-color-darkestgrey;
+        background-color: transparent;
+
+        &:nth-child(odd) {
+            // background-color: $rbtv-color-darkgrey;
+            background-color: transparent;
+        }
+
+        &:hover {
+            background-color: $rbtv-color-darkestgrey;
+        }
+
+        .panel-description {
+
+            padding-left: $grid-gutter-width/2;
+
+            .title {
+                font-weight: normal;
+            }
+        }
+    }
+}

@@ -1,0 +1,273 @@
+.bohne-item {
+
+    // margin-bottom: $spacer;
+    margin-bottom: 0;
+    overflow: hidden;
+    // padding-top: $spacer;
+
+    // @include media-breakpoint-down(md) {
+    //     margin-bottom: $spacer;
+    // }
+
+    &_link {
+
+        display: flex;
+        flex-direction: row;
+
+        justify-content: flex-end;
+        align-items: flex-end;
+    
+        position: relative;
+
+        overflow: hidden;
+        border-radius: $rbtv-borderRadius-small;
+
+        // transition: transform $rbtv-animationDuration/2;
+        // transform-origin: 50% 65%;
+
+        &::after
+        {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 25%;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: $rbtv-borderRadius-small;
+            background-color: $rbtv-color-darkestgrey;
+            // background-image: linear-gradient( 30deg, rgba($rbtv-color-dark, .8) 30%, rgba($rbtv-color-darkgrey, .3) 100%), url(../assets/img/millimeterpapier_textur.png);
+            // background-image: linear-gradient( 30deg, rgba($rbtv-color-dark, .8) 30%, rgba($rbtv-color-darkgrey, .3) 100%);
+            // background-size: cover;
+            // background-blend-mode: normal, screen;
+            // background-position: right top;
+
+            z-index: 0;
+            
+            transition: background-color $rbtv-animationDuration/2, background-blend-mode $rbtv-animationDuration/2,  background-size $rbtv-animationDuration/2, opacity $rbtv-animationDuration/2, transform $rbtv-animationDuration/2;
+            background-repeat: no-repeat;
+        }
+
+
+        &:hover {
+
+            &::after {
+                background-color: $rbtv-color-darkgrey;
+                // background-image: linear-gradient( 30deg, rgba($rbtv-color-dark, .6) 30%, rgba($rbtv-color-darkgrey, 0) 100%), url(../assets/img/millimeterpapier_textur.png);
+            }
+
+            .portrait {
+                transform: scale(1);
+            }
+        }
+    }
+
+    
+    &_info {
+        
+        position: absolute;
+    
+        left: $grid-gutter-width/2;
+        bottom: $grid-gutter-width/2;
+        right: 40%;
+        line-height: 1;
+
+        z-index: 50;
+
+        &_name {
+            display: block;
+            font-family: $rbtv-font-secondary;
+            @include fontSize($rbtv-fontSize-large);
+            
+            @include media-breakpoint-down(md) {
+                @include fontSize($rbtv-fontSize-mediumlarge);
+            }
+        }
+
+        &_counter {
+            display: block;
+            margin-top: $grid-gutter-width/2;
+
+            color: $rbtv-color-text;
+
+            .rbtv-icon {
+                @include fontSize($rbtv-fontSize-medium);
+            }
+        }
+    }
+
+    
+
+    .portrait {
+        height: 12rem;
+        // position: absolute;
+        // right: 0;
+        // bottom: 0;
+        z-index: 20;
+
+        backface-visibility: hidden;
+
+        // transform: scale(.95);
+        transform: translateX(15%) scale(.95);
+
+        transform-origin: center bottom;
+        transition: transform $rbtv-animationDuration/2;
+
+        @include media-breakpoint-down(lg) {
+            height: 10rem;
+        }
+        // @include media-breakpoint-down(md) {
+        //     transform: translateX(15%);
+        // }
+        @include media-breakpoint-down(sm) {
+            height: 8rem;
+        }
+
+        // @media only screen and (max-width: 500px) {
+        //     height: 8rem;
+        // }
+        
+        @media only screen and (max-width: 459px) {
+            height: 10rem;
+        }
+    }
+
+
+
+    &:hover {
+        .portrait {
+            transform: translateX(15%) scale(1);
+        }
+    }
+    
+    @include media-breakpoint-down(sm) {
+        .portrait {
+            transform: scale(.95);
+        }
+
+        &:hover {
+            .portrait {
+                transform: scale(1);
+            }
+        }
+    }
+
+    // @include media-breakpoint-down(xs) {
+    //     .portrait {
+    //         transform: translateX(15%) scale(.95);
+    //     }
+
+    //     &:hover {
+    //         .portrait {
+    //             transform: translateX(15%) scale(1);
+    //         }
+    //     }
+    // }
+    // @media only screen and (max-width: 500px) {
+    //     .portrait {
+    //         transform: translateX(20%) scale(.95);
+    //     }
+
+    //     &:hover {
+    //         .portrait {
+    //             transform: translateX(20%) scale(1);
+    //         }
+    //     }
+    // }
+    @media only screen and (max-width: 459px) {
+        .portrait {
+            transform: scale(.95);
+        }
+
+        &:hover {
+            .portrait {
+                transform: scale(1);
+            }
+        }
+    }
+
+    &.bohne_team {
+
+        @include media-breakpoint-up(sm) {
+
+            // padding-top: $spacer;
+            margin-bottom: $spacer/2;
+
+            .bohne-item_info {
+                bottom: $grid-gutter-width/2;
+                left: $grid-gutter-width/2;
+
+                // @include media-breakpoint-down(sm) {
+                //     bottom: $grid-gutter-width/4;
+                // }
+            }
+
+            .bohne-item_link {
+                &::after {
+                    background-size: cover, 150% auto;
+                }
+            }
+
+            .bohne-item_info_name {
+                @include fontSize($rbtv-fontSize-mediumlarge);
+                // @include media-breakpoint-down(sm) {
+                //     @include fontSize($rbtv-fontSize-medium);
+                // }
+            }
+
+            .bohne-item_info_counter {
+                margin-top: $grid-gutter-width/2;
+                @include fontSize($rbtv-fontSize-mediumsmall);
+
+                .rbtv-icon {
+                    @include fontSize($rbtv-fontSize-mediumsmall);
+                }
+
+                // @include media-breakpoint-down(sm) {
+                //     margin-top: $grid-gutter-width/4;
+                // }
+            }
+
+            // @media only screen and (min-width: 470px) and (max-width: 635px) {
+            //     .portrait {
+            //         transform: none;
+            //     }
+            // }
+
+        }
+
+        .portrait {
+
+            @include media-breakpoint-up(sm) {
+                height: 6rem;
+            }
+
+        }
+
+        @include media-breakpoint-up(md) {
+            .portrait {
+                transform: translateX(15%) scale(.95);
+            }
+    
+            &:hover {
+                .portrait {
+                    transform: translateX(15%) scale(1);
+                }
+            }
+        }
+    
+
+
+    }
+
+}
+
+// .odd {
+//     .bohne-item {
+//         &_link {
+//             &::after {
+//                 background-color: $rbtv-color-darkgrey;
+//             }
+//         }
+//     }
+// }

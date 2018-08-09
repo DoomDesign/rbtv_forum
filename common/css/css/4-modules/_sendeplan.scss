@@ -1,0 +1,1066 @@
+$wochentage: (
+    montag: montag,
+    dienstag: dienstag,
+    mittwoch: mittwoch,
+    donnerstag: donnerstag,
+    freitag: freitag,
+    samstag: samstag,
+    sonntag: sonntag
+);
+
+
+.sendeplan {
+    .content-box {
+        .box-header {
+            &_title,
+            &_action {
+                flex: 1;
+            }
+        }
+    }
+}
+
+
+.sendeplan-datumsnavi {
+    @include media-breakpoint-down(md) {
+        flex: 2;
+        background-color: $rbtv-color-dark;
+
+        // position: sticky;
+        // top: 0;
+        // z-index: 500;
+    }
+    .title {
+
+        vertical-align: middle;
+        @include fontSize($rbtv-fontSize-mediumlarge);
+
+        h3 {
+            margin-bottom: 0;
+        }
+    }
+
+    &.datumsnavi-day {
+        .title {
+
+            flex: 1;
+            padding: $spacer/2;
+
+            &.isToday {
+                background-color: $rbtv-color-blue;
+
+                .subtitle {
+                    color: $rbtv-color-blue-light;
+                }
+            }
+    
+            h3 {
+                display: block;
+                text-align: center;
+                // margin-bottom: $spacer/2;
+                margin-bottom: 0;
+    
+                padding: 0;
+                background-color: transparent;
+                box-shadow: none;
+            }
+
+            @include media-breakpoint-down(md) {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                h3 {
+                    
+                    line-height: 1;
+                }
+                .subtitle {
+                    
+                    margin-left: $grid-gutter-width/2;
+                    line-height: 1;
+                }
+            }
+        }
+    }
+}
+
+
+
+.sendeplan-maincontainer {
+
+    /* Grid for large screens */
+    .sendeplan-varheights-grid {
+
+        display: grid;
+        grid-template-columns: repeat(7, minmax(0px, 1fr));
+        grid-template-rows: 1;
+        grid-column-gap: 0;
+        grid-row-gap: 0;
+        grid-template-areas:    
+            "day-montag day-dienstag day-mittwoch day-donnerstag day-freitag day-samstag day-sonntag";
+
+        @include media-breakpoint-down(md) {
+            display: block;
+        }
+
+
+
+        .sendeplan-singleday {
+            // loop through wochentage & generate classes
+            // @each $tagname, $short in $wochentage {
+            //     &.day-#{$short} {
+            //         grid-area: day-#{$short};
+            //     }
+            // }
+
+            &.day-samstag,
+            &.day-sonntag {
+                rbtv-sendeplan-inline-element {
+                    .sendeplan-item:not(.isExpanded) {
+                        background-color: $rbtv-color-darkgrey;
+                    }
+                }
+            }
+
+        }
+    }
+
+
+    /* item containers for all the single elements and their timeslots */
+    .sendeplan-singleday-items {
+
+        padding: 0 $grid-gutter-width/8;
+        flex-shrink: 0;
+
+        @include media-breakpoint-down(md) {
+            padding: 0;
+        }
+
+        .timeslot-day {
+
+            /* insert a divider line at the end, between day and night, on large screens */
+            @include media-breakpoint-up(lg) {
+
+                padding-bottom: $spacer*0.75;
+                margin-bottom: $spacer/2;
+                position: relative;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    display: block;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    height: $spacer/3;
+                    background-color: $rbtv-color-grey;
+                    margin-left: -#{$grid-gutter-width/8};
+                    margin-right: -#{$grid-gutter-width/8};
+                }
+            }
+
+
+            /* Zebra item backgrounds on small screens */
+            @include media-breakpoint-down(md) {
+
+                &.oddItems,
+                &.evenItems {
+                    rbtv-sendeplan-inline-element {
+                        
+                            &:nth-of-type(odd) {
+                                .sendeplan-item:not(.isNow) {
+                                    background-color: $rbtv-color-darkestgrey;
+                                }
+                            }
+                            
+                            &:nth-of-type(even) {
+                                .sendeplan-item:not(.isNow) {
+                                    background-color: $rbtv-color-darkgrey;
+                                }
+                            }
+                        
+                    }
+                }
+
+                &.oddItems {
+
+                    & + .timeslot-night {
+
+                        rbtv-sendeplan-inline-element {
+                            
+                                &:nth-of-type(odd) {
+                                    .sendeplan-item:not(.isNow) {
+                                        background-color: $rbtv-color-darkgrey;
+                                    }
+                                }
+                                
+                                &:nth-of-type(even) {
+                                    .sendeplan-item:not(.isNow) {
+                                        background-color: $rbtv-color-darkestgrey;
+                                    }
+                                }
+                            
+                        }
+
+                    }
+                }
+                &.evenItems {
+
+                    & + .timeslot-night {
+
+                        rbtv-sendeplan-inline-element {
+
+                                &:nth-of-type(odd) {
+                                    .sendeplan-item:not(.isNow) {
+                                        background-color: $rbtv-color-darkestgrey;
+                                    }
+                                }
+                                
+                                &:nth-of-type(even) {
+                                    .sendeplan-item:not(.isNow) {
+                                        background-color: $rbtv-color-darkgrey;
+                                    }
+                                }
+                            
+                        }
+
+                    }
+                    
+                }
+
+            }
+        }
+    }
+
+    .day-title {
+
+        @include fontSize($rbtv-fontSize-mediumlarge);
+        text-align: center;
+        margin: 0 0 ($grid-gutter-width/2) 0;
+        background-color: $rbtv-color-dark;
+        box-shadow: $rbtv-overlay-boxshadow;
+        
+        &.sticky {
+            z-index: 500;
+        }
+
+        // position: sticky;
+        // top: 0;
+        // z-index: 500;
+
+        padding: ($spacer/2) ($grid-gutter-width/2);
+
+        @include media-breakpoint-down(lg) {
+            @include fontSize($rbtv-fontSize-medium);
+        }
+
+        @include media-breakpoint-down(md) {
+            // margin-top: $spacer;
+            // margin-bottom: $spacer/2;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            margin-bottom: $spacer;
+            border-radius: $rbtv-borderRadius-small;
+            // padding: 0;
+            background-color: $rbtv-color-darkgrey;
+            @include fontSize($rbtv-fontSize-mediumlarge);
+        }
+
+        &.isToday {
+            background-color: $rbtv-color-blue;
+            color: $rbtv-color-text-highlight;
+            // border-top-left-radius: $rbtv-borderRadius-small;
+            // border-top-right-radius: $rbtv-borderRadius-small;
+            border-radius: $rbtv-borderRadius-small;
+
+            .date {
+                // color: $rbtv-color-text;
+                color: $rbtv-color-blue-light;
+            }
+
+            @include media-breakpoint-down(md) {
+                border-radius: $rbtv-borderRadius-small;
+            }
+        }
+
+        .date {
+            display: block;
+            @include fontSize($rbtv-fontSize-mediumsmall);
+            font-family: $rbtv-font-primary;
+            font-weight: normal;
+            margin-top: $spacer/2;
+            color: $rbtv-color-text;
+            // text-transform: uppercase;
+
+            @include media-breakpoint-down(md) {
+                margin-top: 0;
+                margin-left: $grid-gutter-width/2;
+                @include fontSize($rbtv-fontSize-medium);
+            }
+        }
+
+        // loop through wochentage & generate classes
+        @each $tagname, $short in $wochentage {
+            &_#{$short} {
+                grid-area: day-#{$short};
+            }
+        }
+
+    }
+
+    .time-container {
+
+        // padding: 0 $grid-gutter-width/4;
+        padding: 0;
+        flex-shrink: 0;
+
+        rbtv-sendeplan-inline-element {
+            &:first-child {
+                padding-left: 0;
+            }
+            &:last-child {
+                padding-right: 0;
+            }
+        }
+
+        &:first-child {
+            padding-left: 0;
+        }
+
+        &:last-child {
+            padding-right: 0;
+        }
+    }
+    
+
+    .time-header-sticky {
+        display: inline-block;
+        position: sticky;
+        left: 0;
+
+        .h {
+            &-10,
+            &-16,
+            &-20,
+            &-23 {
+                padding-left: $spacer/2;
+                padding-right: $spacer/2;
+            }
+        }
+    }
+
+    .h { // time area headings
+
+        &-10,
+        &-16,
+        &-20,
+        &-23 {
+            background-color: $rbtv-color-darkgrey;
+            text-align: center;
+
+            margin: 0 0 ($grid-gutter-width/2) 0;
+            // margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            line-height: 1;
+            padding: $spacer/3;
+            
+            // color: $rbtv-color-grey;
+            color: $rbtv-color-text;
+
+            font-family: $rbtv-font-primary;
+            font-weight: 500;
+
+            @include fontSize($rbtv-fontSize-small);
+            text-transform: uppercase;
+
+            transition: background-color $rbtv-animationDuration/2, color $rbtv-animationDuration/2;
+
+            // @include media-breakpoint-down(md) {
+            //     display: none;
+            // }
+
+            @include media-breakpoint-up(md) {
+                margin: 0 0 ($grid-gutter-width/6) 0;
+                background-color: $rbtv-color-text;
+                color: $rbtv-color-black;
+            }
+
+            &.clickable {
+                &:hover,
+                &:focus {
+                    background-color: $rbtv-color-text-highlight;
+                    color: $rbtv-color-black;
+                }
+
+                &:active {
+                    background-color: $rbtv-color-darkestgrey;
+                    color: $rbtv-color-text-highlight;
+                }
+            }
+        }
+        
+        &-10 {
+            grid-area: h-10;
+        }
+        &-16 {
+            grid-area: h-16;
+        }
+        &-20 {
+            grid-area: h-20;
+        }
+        &-23 {
+            grid-area: h-23;
+        }
+
+        
+
+    }
+
+    rbtv-sendeplan-inline-element {
+        display: block;
+        position: relative;
+        margin-bottom: ($grid-gutter-width/6);
+
+        cursor: default;
+        flex-shrink: 0 !important;
+
+        // flex: 1;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        &.durationprio {
+            &-1 {
+                // flex: 1;
+                flex: 1;
+            }
+            &-2 {
+                // flex: 2;
+                flex: 2;
+            }
+            &-3 {
+                // flex: 3;
+                flex: 3;
+            }
+            &-4 {
+                // flex: 4;
+                flex: 4;
+            }
+        }
+        
+
+        &.item-highlight {
+            flex: 2;
+
+            &.durationprio {
+                &-1 {
+                    flex: 2;
+                }
+                &-2 {
+                    flex: 3;
+                }
+                &-3 {
+                    flex: 4;
+                }
+                &-4 {
+                    flex: 5;
+                }
+            }
+
+            @include media-breakpoint-down(md) {
+
+                // &:not(.isNow) {
+                //     .sendeplan-item {
+                //         background-color: lighten($rbtv-color-darkgrey, 10%) !important; 
+                //     }
+                // }
+            }
+            
+        }
+
+        // &:not(.item-highlight, .isNow) {
+        //     .sendeplan-item {
+        //         &_content {
+        //             .title {
+        //                 color: $rbtv-color-text-light;
+        //             }
+        //         }
+        //     }
+        // }
+
+
+        
+            
+        .sendeplan-item,
+        .sendeplan-item.isExpanded {
+            
+            &.isNow {
+            
+                background-color: $rbtv-color-blue !important;
+
+                .sendeplan-item_content {
+
+                    .time {
+                        color: $rbtv-color-text-highlight;
+                    }
+
+                    .length,
+                    .item-info,
+                    .subtitle {
+                        // color: $rbtv-color-text;
+                        color: $rbtv-color-blue-light;
+                    }
+                }
+            }
+        }
+        
+
+
+        &:hover {
+            z-index: 100;
+
+            // &.item-hover-effect {
+            //     &.isNow {
+            //         &::after {
+            //             background-color: $rbtv-color-blue;
+            //         }
+            //     }
+            // }
+
+            
+            .sendeplan-item:not(.isNow) {
+                &:not(.isExpanded) {
+
+                    background-color: lighten($rbtv-color-darkgrey, 10%) !important; 
+                    
+                    .sendeplan-item_content {
+                        
+                        .subtitle,
+                        .time {
+                            color: $rbtv-color-text-light;
+                        }
+
+                        .length,
+                        .item-info {
+                            color: $rbtv-color-text;
+                        }
+                    }
+
+                }
+                
+            }
+            
+        }
+
+        
+
+
+        .sendeplan-item {
+            
+            position: relative;
+            background-color: $rbtv-color-darkestgrey;
+            transition: background-color $rbtv-animationDuration, opacity $rbtv-animationDuration/2;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+
+            @include media-breakpoint-down(md) {
+                flex-direction: row;
+            }
+
+            .flex-one {
+                min-width: 0;  // flexbox 'hack', see https://css-tricks.com/flexbox-truncated-text/
+            }
+
+
+            &_img {
+
+                @include media-breakpoint-up(lg) {
+                    flex-shrink: 0;
+                }
+
+                @include media-breakpoint-down(md) {
+                    width: 30%;
+                    flex-shrink: 0;
+                }
+
+                @include media-breakpoint-down(xs) {
+                    width: 40%;
+                }
+
+                // @include media-breakpoint-down(xs) {
+                //     width: 50%;
+                // }
+
+            }                
+            
+            &_content {
+
+                padding: $spacer*0.75 $grid-gutter-width/4;
+                @include fontSize($rbtv-fontSize-medium);
+
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                flex: 1;
+                height: 100%;
+
+                @include media-breakpoint-down(md) {
+                    height: auto;
+                    padding: $spacer*0.5 $grid-gutter-width/4 $spacer*0.5 $grid-gutter-width/2;
+                    
+                    // min-height: calc(40px - #{$spacer*1.5});
+                }
+
+                &_textcontainer {
+                    min-width: 0;
+                }
+
+
+
+                .time-container,
+                .title,
+                .subtitle,
+                .length,
+                .item-info {
+                    display: block;
+                    transition: color $rbtv-animationDuration/2;
+                }
+
+                .title,
+                .subtitle {
+                    line-height: 1.25;
+                }
+
+                .subtitle,
+                .length {
+                    @include fontSize($rbtv-fontSize-small);
+                }
+
+                .time-container,
+                .title {
+                    margin-bottom: $spacer/4;
+
+                    @include media-breakpoint-down(md) {
+                        margin-bottom: 0;
+                    }
+                }
+
+                .time {
+                    line-height: 1;
+                    color: $rbtv-color-text;
+
+                    transition: color $rbtv-animationDuration/2;
+
+                    @include fontSize($rbtv-fontSize-small);
+                    
+                    @include media-breakpoint-down(md) {
+                        @include fontSize($rbtv-fontSize-mediumsmall);
+                    }
+                }
+
+                .title {
+                    font-family: $rbtv-font-secondary;
+                    font-weight: bold;
+                    color: $rbtv-color-text-highlight;
+
+                    
+                    text-overflow: ellipsis;
+                    width: 100%;
+                    overflow: hidden;
+
+                    @include fontSize($rbtv-fontSize-mediumsmall);
+
+                    // @include media-breakpoint-up(lg) {
+                        &.whitespace-nowrap {
+                            white-space: nowrap;
+                        }
+                    // }
+
+                    @include media-breakpoint-down(md) {
+                        white-space: nowrap;
+                        margin-bottom:0;
+                        line-height: 1.25;
+                        margin-top: $spacer/2;
+                    }
+                }
+
+                .subtitle {
+                    text-overflow: ellipsis;
+                    // overflow: hidden;
+                    display: block;
+                    // white-space: nowrap;
+                    width: 100%;
+                    line-height: 1.25;
+                    // overflow: visible;
+                    // white-space: normal !important;
+                    
+
+                    @include media-breakpoint-down(md) {
+                        overflow: hidden;
+                        white-space: nowrap;
+                        margin-top: $spacer/2;
+                        @include fontSize($rbtv-fontSize-mediumsmall);
+                    }
+
+                    @include media-breakpoint-down(xs) {
+                        margin-bottom: 0;
+                        margin-top: $spacer/3;
+                    }
+                }
+
+                .length {
+                    color: $rbtv-color-grey;
+                    line-height: 1;
+                    
+                    margin-top: $spacer/2;
+
+                    @include media-breakpoint-down(md) {
+                        display: none;
+                    }
+                }
+                
+                .item-info {
+                    &.clickable {
+                        &:hover,
+                        &:focus {
+                            color: $rbtv-color-text-highlight;
+                        }
+
+                        &:active {
+                            // color: $rbtv-color-blue;
+                            .rbtv-icon {
+                                transform: scale(0.9);
+                            }
+                        }
+                    }
+                }
+
+                @include media-breakpoint-down(md) {
+
+
+                    .title {
+                        @include fontSize($rbtv-fontSize-medium);
+                    }
+
+                }
+
+            }
+
+            &.isExpanded {
+
+                position: absolute;
+                top: -#{$spacer/2};
+                left: 50%;
+                transform: translate(-50%,0);
+                z-index: 300;
+                background-color: lighten($rbtv-color-darkgrey, 10%) !important;
+                // background: linear-gradient(180deg, $rbtv-color-darkestgrey 0%, lighten($rbtv-color-darkgrey, 10%) 100%);
+                min-width: $spacer*18;
+                max-width: 95vw;
+                height: auto;
+                transform-origin: left top;
+                box-shadow: $rbtv-overlay-boxshadow;
+                display: block;
+
+                @include media-breakpoint-down(lg) {
+                    min-width: $spacer*15;
+                }
+
+                @include media-breakpoint-down(md) {
+                    width: 100%;
+                    max-width: auto;
+                    flex-direction: row;
+                    align-items: flex-start;
+                    position: relative;
+                    transform-origin: center top;
+                    transform: none;
+                    top: 0;
+                    left: 0;
+                    // right: 0;
+                    display: flex;
+    
+                }
+                @include media-breakpoint-down(sm) {
+                    flex-direction: column;
+                    align-items: stretch;
+    
+                    .sendeplan-item_img {
+                        width: 100%;
+                    }
+    
+                }
+
+                & + .sendeplan-item {
+                    opacity: 0;
+
+                    @include media-breakpoint-down(md) {
+                        position: absolute;
+                        z-index: -1;
+                        top: 0;
+                        left: 0;
+                    }
+                }
+
+                .sendeplan-item_content {
+                    padding: $spacer*0.75 $grid-gutter-width/3 $spacer*0.75 $grid-gutter-width/3;
+                    
+                    @include media-breakpoint-down(md) {
+                        padding: $spacer*0.75 $grid-gutter-width/4 $spacer/2 $grid-gutter-width/2;
+                    }
+
+                    &_textcontainer {
+                        flex-direction: column;
+                        align-items: flex-start;
+                    }
+    
+                    .title,
+                    .time-container,
+                    .subtitle {
+                        display: block;
+                    }
+    
+                    .time-container {
+                        // margin-bottom: $spacer/2;
+    
+                        .time {
+                            color: $rbtv-color-text-highlight;
+                            // @include fontSize($rbtv-fontSize-mediumsmall);
+                            
+                        }
+                    }
+
+                    .title {
+                        font-family: $rbtv-font-secondary;
+                        font-weight: bold;
+                        color: $rbtv-color-text-highlight;
+                        @include fontSize($rbtv-fontSize-mediumlarge);
+                        margin-bottom:0;
+                        line-height: 1.25;
+                        overflow: visible;
+                        white-space: normal;
+    
+                        @include media-breakpoint-down(md) {
+                            margin-top: $spacer/2;
+                        }
+                    }
+    
+                    .subtitle {
+                        color: $rbtv-color-text-light;
+                        @include fontSize($rbtv-fontSize-medium);
+                        line-height: 1.25;
+                        overflow: visible;
+                        white-space: normal;
+    
+                        margin-top: $spacer/2;
+                        margin-bottom: $spacer;
+                    }
+    
+                    .length {
+                        color: $rbtv-color-text;
+                        // @include fontSize($rbtv-fontSize-mediumsmall);
+                        line-height: 1;
+                        // margin-top: $spacer;
+                        // color: $rbtv-color-text-light;
+
+                        @include media-breakpoint-down(md) {
+                            display: block;
+                            flex: 1;
+                        }
+                    }
+                }
+    
+                
+                .sendeplan-item_mods {
+                    // margin-top: $spacer/2;
+                    img {
+                        max-height: 4rem;
+                    }
+                }
+            }
+
+        }
+
+        &:not(.item-highlight) {
+            .sendeplan-item {
+
+                // &:not(.isExpanded) {
+                //     .sendeplan-item_img {
+                //         filter: grayscale(100);
+                //     }
+                // }
+
+
+                &_content {
+
+                    // &_textcontainer {
+                    //     @include media-breakpoint-down(md) {
+                    //         display: flex;
+                    //         flex-direction: row;
+                    //         align-items: center;
+                    //     }
+                    // }
+                    
+                    // &_top {
+
+                    //     width: 100%;
+
+                    //     @include media-breakpoint-down(md) {
+                    //         display: flex;
+                    //         align-items: center;
+                    //         flex: 1;
+
+                    //         // margin-bottom: $spacer/3;
+                    //         margin-bottom: 0;
+                            
+                    //         .time-container {
+                    //             margin-bottom: 0;
+                    //         }
+                    //         .title {
+                    //             margin-left: $spacer;
+                    //             margin-bottom: 0;
+                    //             margin-top: 0;
+                    //         }
+                    //     }
+                    // }
+                }
+
+                &.isExpanded {
+                    .sendeplan-item_content {
+                        &_top {
+                            @include media-breakpoint-down(md) {
+                                flex-direction: column;
+                                align-items: stretch;
+                            }
+
+
+                            .title {
+                                margin-left: 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+    // .sendeplan-container > .swiper.s-wrapper .swiper-wrapper .swiper-slide {
+    //     overflow: hidden;
+    // }
+
+    .sendeplan-container .swiper-wrapper {
+        
+
+        .swiper-slide {
+
+            .sendeplan-singleday-items {
+                // height: 65vh;   
+                // overflow-y: auto;
+                overflow-x: hidden;
+            }
+        }
+    }
+
+}
+
+
+
+
+
+
+/* Livestream - Sendeplan */
+
+rbtv-sendeplan-preview {
+
+    rbtv-sendeplan-preview-element {
+
+        display: block;
+        
+        &:nth-of-type(even) {
+            .sendeplan_item {
+                background-color: $rbtv-color-darkestgrey;
+            }
+        }
+        &:nth-of-type(odd) {
+            .sendeplan_item {
+                background-color: $rbtv-color-darkgrey;
+            }
+        }
+
+        &:first-of-type {
+
+            .sendeplan_item {
+
+                // background-color: lighten($rbtv-color-black, 15%);
+                background-color: $rbtv-color-blue;
+                color: $rbtv-color-text-highlight;
+
+                &_date {
+                    color: $rbtv-color-blue-light;
+                }
+                
+                &_text {
+                    
+                    &_title {
+    
+                        &_subtext {
+                            color: $rbtv-color-blue-light;
+                        }
+    
+                    }
+                }
+            }
+        }
+
+        .sendeplan_item {
+            margin: 0 0 ($spacer/2) 0;
+            padding: ($spacer / 2) ($grid-gutter-width/4);
+
+            rbtv-live-new-indicator {
+                display: inline-block;
+            }
+
+            &_date {
+                @include fontSize($rbtv-fontSize-small);
+                width: 4em;
+                margin-right: ($spacer / 2);
+                line-height: 1;
+                color: $rbtv-color-text;
+
+                // padding: ($spacer/3) ($spacer/5);
+                // background-color: $rbtv-color-dark;
+            }
+            &_text {
+
+                flex: 1;
+
+                &_title {
+                    flex: 1;
+                    font-family: $rbtv-font-secondary;
+                    font-weight: bold;
+                    margin-right: $spacer;
+                    line-height: 1;
+                    
+
+                    &_subtext {
+                        display: block;
+                        color: $rbtv-color-text;
+                        font-family: $rbtv-font-primary;
+                        font-weight: normal;
+                        @include fontSize($rbtv-fontSize-small);
+                    }
+
+                }
+            }
+        }
+
+    }
+
+}
