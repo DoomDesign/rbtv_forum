@@ -3,6 +3,7 @@
   "about_url": "URL",
   "license_url": "URL",
   "assets": {
+    "rbtvcss": "assets/rbtv-style.css",
     "small-bg-image": "assets/body_bg5_small.jpg",
     "large-bg-image": "assets/body_bg5.jpg",
     "cornerbug-image": "assets/rbtv-cornerbug.svg",
