@@ -7,5 +7,17 @@
     "large-bg-image": "assets/body_bg5.jpg"
   },
   "color_schemes": {
+    "DarkMode": {
+        "primary": "b2b2b2",
+        "secondary": "222222",
+        "tertiary": "009dd8",
+        "quaternary": "ffffff",
+        "header_background": "131418",
+        "header_primary": "e6e6e6",
+        "highlight": "266f9f",
+        "danger": "c0001f",
+        "success": "00bb00",
+        "love": "e1001a"
+      }
   }
 }
