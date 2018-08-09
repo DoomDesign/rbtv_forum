@@ -13,7 +13,19 @@
     "font-Rubik-Bold-eot":  "assets/Rubik-Bold.eot",
     "font-Rubik-Bold-ttf": "assets/Rubik-Bold.ttf",
     "font-Rubik-Bold-woff": "assets/Rubik-Bold.woff",
-    "font-Rubik-Bold-woff2": "assets/Rubik-Bold.woff2"
+    "font-Rubik-Bold-woff2": "assets/Rubik-Bold.woff2",
+    "font-Rubik-BoldItalic-eot":  "assets/Rubik-BoldItalic.eot",
+    "font-Rubik-BoldItalic-ttf": "assets/Rubik-BoldItalic.ttf",
+    "font-Rubik-BoldItalic-woff": "assets/Rubik-BoldItalic.woff",
+    "font-Rubik-BoldItalic-woff2": "assets/Rubik-BoldItalic.woff2",
+    "font-Rubik-Medium-eot":  "assets/Rubik-Medium.eot",
+    "font-Rubik-Medium-ttf": "assets/Rubik-Medium.ttf",
+    "font-Rubik-Medium-woff": "assets/Rubik-Medium.woff",
+    "font-Rubik-Medium-woff2": "assets/Rubik-Medium.woff2",
+    "font-Rubik-Regular-eot":  "assets/Rubik-Regular.eot",
+    "font-Rubik-Regular-ttf": "assets/Rubik-Regular.ttf",
+    "font-Rubik-Regular-woff": "assets/Rubik-Regular.woff",
+    "font-Rubik-Regular-woff2": "assets/Rubik-Regular.woff2"
   },
   "color_schemes": {
     "DarkMode": {
