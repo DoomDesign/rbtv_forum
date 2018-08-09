@@ -1,2 +1,116 @@
 
-@import $rbtv-css;
+//Custom variables
+
+// Descriptive color variables
+
+// Functional color variables
+
+// Font stacks
+
+// Asset paths
+
+// colors
+$rbtv-color-text: #b2b2b2;
+$rbtv-color-text-light: #d0d0d0;
+$rbtv-color-text-highlight: #fff;
+$rbtv-color-text-dark: #222;
+
+// $rbtv-color-yellow: #d89b26; // RBTV Logo yellow
+$rbtv-color-yellow: #eb9b00; // RBTV Logo yellow
+// $rbtv-color-blue: #3b68a8;
+$rbtv-color-blue: #266f9f;
+$rbtv-color-blue-light: lighten($rbtv-color-blue, 45%);
+$rbtv-color-blue-shade: darken($rbtv-color-blue, 25%);
+// $rbtv-color-red: #c0001f; // RBTV Logo red
+$rbtv-color-red: #e1001a; // RBTV Logo red
+
+$rbtv-color-green: #00bb00; // RBTV Logo red
+$rbtv-color-brightyellow: #ffc001; // RBTV Logo red
+$rbtv-color-purple: #a82df2; // RBTV Logo red
+$rbtv-color-orange: #ec5300; // RBTV Logo red
+
+
+// $rbtv-color-lightgrey: #888;
+// $rbtv-color-grey: #656566;
+// $rbtv-color-darkgrey: #222;
+// $rbtv-color-bodybg: #1c1c1c;
+// $rbtv-color-darkestgrey: #151515;
+// $rbtv-color-dark: #050505;
+// $rbtv-color-black: #000;
+
+$rbtv-color-lightgrey: #888;
+$rbtv-color-grey: #7a7a7a;
+$rbtv-color-darkgrey: #383838;
+$rbtv-color-bodybg: #212121;
+$rbtv-color-darkestgrey: #252525;
+$rbtv-color-dark: #050505;
+$rbtv-color-black: #000;
+
+$rbtv-color-darkBG: rgba($rbtv-color-dark, .95);
+
+$rbtv-color-button-default: #e6e6e6;
+$rbtv-color-button-secondary: darken($rbtv-color-button-default, 20%);
+
+
+$rbtv-color-brand-google:#FF0000;
+$rbtv-color-brand-twitch:#6441A4;
+$rbtv-color-brand-steam:#144f82;
+$rbtv-color-brand-reddit:#FF4500;
+$rbtv-color-brand-spotify:#1ED760;
+$rbtv-color-brand-applepodcasts:#a849dc;
+
+
+
+
+
+// fonts
+$rbtv-font-primary: 'Rubik', 'Roboto', Helvetica, Arial, sans-serif;
+$rbtv-font-secondary: 'Arvo-RBTV-v1', 'Roboto', Helvetica, Arial, sans-serif;
+
+$rbtv-fontSize-small: 12px;
+$rbtv-fontSize-mediumsmall: 14px;
+$rbtv-fontSize-medium: 16px;
+$rbtv-fontSize-mediumlarge: 20px;
+$rbtv-fontSize-large: 24px;
+
+
+// border radius
+$rbtv-borderRadius: 12px;
+$rbtv-borderRadius-small: 5px;
+
+
+// decorations, background patterns
+$rbtv-stripedBackground: repeating-linear-gradient(
+    -45deg,
+    #161417,
+    #161417 12px,
+    #0b090b 12px,
+    #0b090b 24px
+);
+
+$rbtv-stripedBackgroundLarge: repeating-linear-gradient(
+    -45deg,
+    #161417,
+    #161417 36px,
+    transparent 36px,
+    transparent 72px
+);
+
+$rbtv-stripedBackgroundSoft: repeating-linear-gradient(
+    -45deg,
+    #181619,
+    #181619 9px,
+    #252326 9px,
+    #252326 18px
+);
+
+$rbtv-overlay-boxshadow: 0 4px 0 0 rgba($rbtv-color-black, .5);
+$rbtv-overlay-expandingboxshadow: 0 2px 0 2px rgba($rbtv-color-black, .4);
+
+
+// animations, transitions
+$rbtv-animationDuration: 0.3s;
+$rbtv-easing-ease: cubic-bezier(.75,0,.25,1);
+$rbtv-easing-snappy: cubic-bezier(1.000, 0.000, 0.000, 1.000);
+$rbtv-easing-hardEaseOut: cubic-bezier(0,1,0,1);
+$rbtv-easing-softEaseOut: cubic-bezier(1,0,1,0);

@@ -1,9 +1,0 @@
-.mediathek-search {
-
-    .mediathek-search-formcontainer {
-        @include media-breakpoint-up(lg) {
-            max-width: 1000px + $grid-gutter-width;
-        }
-    }
-
-}

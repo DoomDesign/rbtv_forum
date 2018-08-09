@@ -2,9 +2,7 @@
   "name": "RBTV Forum 2018",
   "about_url": "URL",
   "license_url": "URL",
-  "assets": {
-    "rbtv-css": "assets/css/_main.scss"
-  },
+  "assets": {},
   "color_schemes": {
   }
 }
