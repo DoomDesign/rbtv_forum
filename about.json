@@ -4,7 +4,16 @@
   "license_url": "URL",
   "assets": {
     "small-bg-image": "assets/body_bg5_small.jpg",
-    "large-bg-image": "assets/body_bg5.jpg"
+    "large-bg-image": "assets/body_bg5.jpg",
+    "cornerbug-image": "assets/rbtv-cornerbug.svg",
+    "font-Arvo-eot":  "assets/Arvo-RBTV-v1Bold.eot",
+    "font-Arvo-ttf": "assets/Arvo-RBTV-v1Bold.ttf",
+    "font-Arvo-woff": "assets/Arvo-RBTV-v1Bold.woff",
+    "font-Arvo-woff2": "assets/Arvo-RBTV-v1Bold.woff2",
+    "font-Rubik-Bold-eot":  "assets/Rubik-Bold.eot",
+    "font-Rubik-Bold-ttf": "assets/Rubik-Bold.ttf",
+    "font-Rubik-Bold-woff": "assets/Rubik-Bold.woff",
+    "font-Rubik-Bold-woff2": "assets/Rubik-Bold.woff2",
   },
   "color_schemes": {
     "DarkMode": {
