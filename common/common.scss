@@ -2633,17 +2633,93 @@ dl {
 
 
 
+/** Tables **/
+
+table {
+    tbody {
+        tr {
+            border-bottom: 0;
+
+            &:nth-of-type(odd) {
+                background-color: darken($rbtv-color-darkestgrey, 7.5%);
+            }
+            
+        }
+    }
+}
 
 
-/** Latest Topic List **/
+
+
+
+/** Latest Topic List, Frontpage **/
 .latest-topic-list {
 
     .latest-topic-list-item {
         .main-link {
-            .top-row {
-                @include fontSize($rbtv-fontSize-medium);
-            }
+            
         }
     }
     
+}
+
+
+/** Topics List, Category **/
+
+.topic-list {
+    th {
+        padding-top: $spacer;
+        padding-bottom: $spacer;
+    }
+
+    td {
+        padding-top: $spacer*1.5;
+        padding-bottom: $spacer*1.5;
+    }
+}
+
+.topic-list-main-link, .topic-list .main-link, .latest-topic-list-item .main-link {
+    @include fontSize($rbtv-fontSize-medium);
+}
+
+
+/** Single Topic **/
+
+#topic {
+
+    .topic-post {
+
+        .row {
+            display: flex;
+            align-items: stretch;
+        }
+
+        .topic-avatar,
+        .topic-body {
+            border-top: 0;
+        }
+
+        .topic-avatar {
+            padding-left: $spacer/2;
+            padding-right: $spacer/2;
+
+            .avatar {
+                max-width: 100%;
+                height: auto;
+            }
+        }
+    }
+}
+
+#user-card, #group-card {
+    box-shadow: $rbtv-overlay-boxshadow;
+}
+
+
+
+
+/** USER PROFILE **/
+
+.stats-title {
+    text-transform: none;
 }
