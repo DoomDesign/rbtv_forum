@@ -25,7 +25,11 @@
     "font-Rubik-Regular-eot":  "assets/Rubik-Regular.eot",
     "font-Rubik-Regular-ttf": "assets/Rubik-Regular.ttf",
     "font-Rubik-Regular-woff": "assets/Rubik-Regular.woff",
-    "font-Rubik-Regular-woff2": "assets/Rubik-Regular.woff2"
+    "font-Rubik-Regular-woff2": "assets/Rubik-Regular.woff2",
+    "font-Rubik-Italic-eot":  "assets/Rubik-Italic.eot",
+    "font-Rubik-Italic-ttf": "assets/Rubik-Italic.ttf",
+    "font-Rubik-Italic-woff": "assets/Rubik-Italic.woff",
+    "font-Rubik-Italic-woff2": "assets/Rubik-Italic.woff2"
   },
   "color_schemes": {
     "DarkMode": {

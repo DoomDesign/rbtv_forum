@@ -1576,11 +1576,11 @@ $spacer: 1rem !default;
 
 @font-face {
     font-family: 'Rubik';
-    src: url('#{$path-fonts}/Rubik-Italic.eot');
-    src: url('#{$path-fonts}/Rubik-Italic.eot?#iefix') format('embedded-opentype'),
-        url('#{$path-fonts}/Rubik-Italic.woff2') format('woff2'),
-        url('#{$path-fonts}/Rubik-Italic.woff') format('woff'),
-        url('#{$path-fonts}/Rubik-Italic.ttf') format('truetype');
+    src: url('#{$font-Rubik-Italic-eot}');
+    src: url('#{$font-Rubik-Italic-eot}?#iefix') format('embedded-opentype'),
+        url('#{$font-Rubik-Italic-eot}') format('woff2'),
+        url('#{$font-Rubik-Italic-eot}') format('woff'),
+        url('#{$font-Rubik-Italic-eot}') format('truetype');
     font-weight: normal;
     font-style: italic;
     font-display: swap;
@@ -1857,4 +1857,705 @@ dl {
 .d-header {
 	background-color: transparent;
 	box-shadow: none;
+}
+
+
+
+
+
+
+
+// Buttons (and links that look like buttons)
+
+
+
+.btn {
+    background-color: transparent;
+    // transition: transform ($rbtv-animationDuration / 2), background-color ($rbtv-animationDuration / 2), color ($rbtv-animationDuration / 2),  box-shadow ($rbtv-animationDuration / 2);
+    transition: transform ($rbtv-animationDuration / 2), box-shadow ($rbtv-animationDuration / 2);
+    font-family: $rbtv-font-secondary;
+    border-radius: $rbtv-borderRadius-small;
+    overflow: hidden;
+    display: inline-flex;
+    text-align: center;
+    align-items: center;
+    white-space: normal;
+    flex-shrink: 0;
+    backface-visibility: hidden;
+
+    &:not([disabled]):not(.disabled):not(.swiper-button-disabled) {
+
+        cursor: pointer;
+
+        &:focus {
+            // outline: 1px dotted rgba($rbtv-color-text, .65);
+            // outline-offset: 1px;
+        }
+    }
+
+    &.disabled,
+    &:disabled,
+    &.swiper-button-disabled {
+        opacity: .5;
+    }
+
+
+    &-lg {
+        @include fontSize($rbtv-fontSize-mediumlarge);
+
+        // @include media-breakpoint-down(sm) {
+        //     @include fontSize($rbtv-fontSize-medium);
+        // }
+    }
+    
+    &.btn-primary {
+
+        line-height: 1;
+        background-color: $rbtv-color-button-default;
+        padding: ($input-btn-padding-y*1.5) ($input-btn-padding-x*1.5);
+        
+        @include media-breakpoint-down(sm) {
+            padding: ($input-btn-padding-y*2) ($input-btn-padding-x*2);
+        }
+
+        &:active,
+        &.active,
+        &:focus,
+        &.focus {
+            box-shadow: none !important;
+        }
+
+        &:not([disabled]):not(.disabled):not(.swiper-button-disabled) {
+
+            &:hover,
+            &:focus {
+                background-color: $rbtv-color-text-highlight;
+                color: $rbtv-color-text-dark;
+            }
+
+            &:active,
+            &.active {
+                background-color: $rbtv-color-blue;
+                color: $rbtv-color-text-highlight;
+            }
+            &:active {
+                transform: scale(.975);
+            }
+
+        }
+    }
+    
+    &.btn-danger {
+
+        line-height: 1;
+        background-color: $rbtv-color-red;
+        padding: ($input-btn-padding-y*1.5) ($input-btn-padding-x*1.5);
+        
+        @include media-breakpoint-down(sm) {
+            padding: ($input-btn-padding-y*2) ($input-btn-padding-x*2);
+        }
+
+        &:active,
+        &.active,
+        &:focus,
+        &.focus {
+            box-shadow: none !important;
+        }
+
+        &:not([disabled]):not(.disabled):not(.swiper-button-disabled) {
+
+            &:hover,
+            &:focus {
+                background-color: $rbtv-color-text-highlight;
+                color: $rbtv-color-text-dark;
+            }
+
+            &:active,
+            &.active {
+                background-color: $rbtv-color-red;
+                color: $rbtv-color-text-highlight;
+            }
+            &:active {
+                transform: scale(.975);
+            }
+
+        }
+    }
+
+    &.btn-secondary {
+        line-height: 1;
+        color: $rbtv-color-text;
+        background-color: $rbtv-color-darkgrey;
+        box-shadow: none !important;
+
+        padding: ($input-btn-padding-y*1.5) ($input-btn-padding-x*1.5);
+        
+        @include media-breakpoint-down(sm) {
+            padding: ($input-btn-padding-y*2) ($input-btn-padding-x*2);
+        }
+
+        &:not([disabled]):not(.disabled):not(.swiper-button-disabled) {
+        
+            &:hover,
+            &:focus {
+                // transform: translateY(-1px);
+                color: $rbtv-color-black;
+                box-shadow: none !important;
+                background-color: $rbtv-color-text-highlight;
+            }
+
+            &:active,
+            &.active {
+                // background-color: $rbtv-color-darkgrey;
+                background-color: $rbtv-color-blue;
+                // transform: translateY(0px);
+                color: $rbtv-color-text-highlight;
+                box-shadow: none !important;
+            }
+
+            &:active {
+                transform: scale(.975);
+            }
+        }
+    }
+
+    &.btn-iconOnly {
+
+        display: inline-block;
+        
+        line-height: 1;
+        color: $rbtv-color-text;        
+        justify-content: center;
+        text-align: center;
+        
+        // transition: transform ($rbtv-animationDuration / 2), background-color ($rbtv-animationDuration / 2), color ($rbtv-animationDuration / 2);
+        transition: transform ($rbtv-animationDuration / 2);
+        
+        @include media-breakpoint-down(sm) {
+            padding: ($input-btn-padding-y*2) ($input-btn-padding-x*1.5);
+        }
+
+        &.onActive {
+            color: $rbtv-color-blue-light;
+        }
+
+
+
+        > .rbtv-icon,
+        > rbtv-interaction-indicator {
+            display: inline-block;
+            // margin: 0 auto;
+        }
+
+        &:active,
+        &.active,
+        &:focus,
+        &.focus {
+            box-shadow: none !important;
+        }
+
+        &:not([disabled]):not(.disabled):not(.swiper-button-disabled) {
+
+            &:hover,
+            &:focus,
+            &:active {
+                color: $rbtv-color-black;
+                background-color: $rbtv-color-text-highlight;
+
+                svg {
+                    fill: $rbtv-color-black;
+                }
+            }
+
+            &:active {
+                transform: scale(.975);
+
+                // background-color: $rbtv-color-darkgrey;
+                // color: $rbtv-color-text-highlight;
+            }
+
+            &.active,
+            &:active {
+                background-color: $rbtv-color-blue;
+                color: $rbtv-color-text-highlight;
+
+                svg {
+                    fill: $rbtv-color-text-highlight;
+                }
+            }
+        }
+    }
+
+    &.btn-textOnly {
+        font-family: $rbtv-font-primary;
+        color: $rbtv-color-button-default;
+        font-weight: normal;
+        box-shadow: none !important;
+        padding: 0;
+        min-height: $spacer*1.5;
+
+        &:hover,
+        &:focus {
+            color: $rbtv-color-text-highlight;
+            span {
+                text-decoration: underline;
+            }
+        }
+
+        &:active {
+            color: $rbtv-color-yellow;
+        }
+    }
+
+    &.btn-noxpadding {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    &.btn-switch {
+
+        line-height: 1;
+        color: $rbtv-color-text;
+        background-color: $rbtv-color-dark;
+        box-shadow: none !important;
+        border-radius: 0;
+        display: block;
+
+        width: 25%;
+
+        @include media-breakpoint-down(md) {
+            width: 35%;
+        }
+        @include media-breakpoint-down(sm) {
+            width: 50%;
+        }
+
+
+        &.switch {
+
+            &__first {
+                border-top-left-radius: $rbtv-borderRadius-small;
+                border-bottom-left-radius: $rbtv-borderRadius-small;
+            }
+
+            &__last {
+                border-top-right-radius: $rbtv-borderRadius-small;
+                border-bottom-right-radius: $rbtv-borderRadius-small;
+            }
+        }
+
+        &:not([disabled]):not(.disabled):not(.swiper-button-disabled) {
+
+            cursor: pointer;
+        
+            &:hover {
+                // transform: translateY(-1px);
+                color: $rbtv-color-black;
+                box-shadow: none !important;
+                background-color: $rbtv-color-text-highlight;
+            }
+
+            &:active,
+            &.active {
+                background-color: $rbtv-color-blue;
+                // transform: translateY(0px);
+                color: $rbtv-color-text-highlight;
+                box-shadow: none !important;
+            }
+
+            &:active {
+                transform: scale(.975);
+            }
+        }
+
+    }
+
+
+    &.btn-block {
+        justify-content: center;
+    }
+
+    &.btn-sm {
+        @include fontSize($rbtv-fontSize-small);
+    }
+    
+
+
+    &.clickAnimation {
+
+        position: relative;
+        overflow: hidden;
+        box-shadow: inset 0 0 0 0 $rbtv-color-blue;
+        transition: transform ($rbtv-animationDuration / 2), background-color $rbtv-animationDuration, color $rbtv-animationDuration, box-shadow $rbtv-animationDuration;
+
+        &::before
+        {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            transition: transform $rbtv-animationDuration;
+            transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+            
+            background-color: $rbtv-color-blue;
+        }
+
+        &:hover,
+        &.active {
+            color: $rbtv-color-text-highlight !important;
+            box-shadow: inset 0 0 0 1px $rbtv-color-blue;
+        }
+
+        &__x {
+            &::before,
+            &::after {
+                transform: translateX(-100%);
+            }
+
+            &:hover,
+            &.active {
+                &::before,
+                &::after {
+                    transform: translateX(0%);
+                }
+            }
+        }
+
+        &__y {
+            &::before,
+            &::after {
+                transform: translateY(-100%);
+            }
+
+            &:hover,
+            &.active {
+                &::before,
+                &::after {
+                    transform: translateY(0%);
+                }
+            }
+        }
+
+    }
+
+    &.btn-bottomRightCorner {
+
+        position: fixed;
+        bottom: 4vw;
+        right: 4vw;
+        // box-shadow: none !important;
+        box-shadow: $rbtv-overlay-boxshadow;
+        
+
+        z-index: 500;
+
+        border-radius: 50% !important;
+        width: 4rem;
+        height: 4rem;
+        overflow: hidden;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        // background-color: $rbtv-color-darkgrey;
+        background-color: $rbtv-color-darkestgrey;
+        color: $rbtv-color-text;
+
+        cursor: pointer;
+
+        @include media-breakpoint-up(sm) {
+            bottom: 2vw;
+            right: 2vw; 
+            width: 3.5rem;
+            height: 3.5rem;
+        }
+        @include media-breakpoint-up(lg) {
+            bottom: 1.5vw;
+            right: 1.5vw; 
+        }
+
+        &:hover {
+            background-color: $rbtv-color-text-highlight;
+            color: $rbtv-color-black;
+        }
+
+        &:active {
+            transform: scale(.975);
+            background-color: $rbtv-color-darkgrey;
+            color: $rbtv-color-text-highlight;
+        }
+
+        > .rbtv-icon {
+            @include fontSize($rbtv-fontSize-large*1.5);
+            // padding-bottom: ($rbtv-fontSize-large/5);
+        }
+
+        &.btn-showStream {
+            background-color: $rbtv-color-button-default;
+            color: $rbtv-color-dark;
+
+            &:hover {
+                background-color: $rbtv-color-text-highlight;
+                color: $rbtv-color-text-dark;
+            }
+
+            &:active,
+            &.active {
+                background-color: $rbtv-color-blue;
+                color: $rbtv-color-text-highlight;
+            }
+        }
+    }
+
+    &.btn-brand {
+    
+        line-height: 1;
+        background-color: transparent;
+        // padding: ($input-btn-padding-y*1.5) ($input-btn-padding-x*1.5);
+        padding: 0;
+        align-items: stretch;
+        justify-content: stretch;
+        transition: transform ($rbtv-animationDuration / 2);
+        
+        // @include media-breakpoint-down(sm) {
+        //     padding: ($input-btn-padding-y*2) ($input-btn-padding-x*2);
+        // }
+
+        &:active,
+        &.active,
+        &:focus,
+        &.focus {
+            box-shadow: none !important;
+        }
+
+        &:not([disabled]):not(.disabled) {
+
+            &:hover {
+                background-color: $rbtv-color-text-highlight;
+                background-color: transparent;
+                color: $rbtv-color-text-dark;
+            }
+
+            &:active,
+            &.active {
+                background-color: $rbtv-color-darkestgrey;
+                color: $rbtv-color-text-highlight;
+            }
+
+        }
+
+        justify-content: flex-start;
+
+        .icon {
+
+            // color: $rbtv-color-button-default;
+            color: $rbtv-color-text-highlight;
+
+            padding: ($spacer/4) $spacer;
+            width: $spacer*4;
+            overflow: hidden;
+
+            transition: background-color $rbtv-animationDuration/2, color $rbtv-animationDuration/2;
+
+            @include media-breakpoint-down(sm) {
+                padding: ($spacer/4) $spacer/2;
+            }
+
+            img,
+            .rbtv-icon {
+                width: $spacer*3;
+                height: $spacer*3;
+                line-height: $spacer*3;
+                font-size: $spacer*2;
+            }
+        }
+
+        .label {
+            background-color: $rbtv-color-button-default;
+            padding: $spacer;
+            // text-align: center;
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background-color $rbtv-animationDuration/2;
+            
+            // @include media-breakpoint-down(sm) {
+            //     padding: $spacer/2;
+            // }
+        }
+
+        &:hover {
+            .icon {
+                background-color: transparent;
+
+                color: $rbtv-color-black;
+                // img {
+                //     filter: invert(1);
+                // }
+            }
+            .label {
+                background-color: $rbtv-color-text-highlight;
+            }
+        }
+
+        &:active {
+            transform: scale(.975);
+
+            .icon {
+                background-color: transparent;
+                color: $rbtv-color-button-default;
+                // img {
+                //     filter: none;
+                // }
+            }
+            .label {
+                background-color: $rbtv-color-darkestgrey;
+            }
+        }
+
+        &.secondary {
+            color: $rbtv-color-button-default;
+            
+            .label {
+                background-color: $rbtv-color-darkgrey;
+                
+            }
+
+            &:hover {
+                .icon {
+                    background-color: transparent;
+                    // img {
+                    //     filter: invert(1);
+                    // }
+                }
+                .label {
+                    background-color: $rbtv-color-text-highlight;
+                }
+            }
+    
+            &:active {
+                .icon {
+                    background-color: transparent;
+                    img {
+                        filter: none;
+                    }
+                }
+                .label {
+                    background-color: $rbtv-color-darkestgrey;
+                }
+            }
+        }
+
+        &.brand-google {
+            .icon {
+                background-color: $rbtv-color-brand-google;
+            }
+        }
+
+        &.brand-twitch {
+            .icon {
+                background-color: $rbtv-color-brand-twitch;
+            }
+            
+        }
+        &.brand-reddit {
+            .icon {
+                background-color: $rbtv-color-brand-reddit;
+            }
+        }
+        &.brand-steam {
+            .icon {
+                background-color: $rbtv-color-brand-steam;
+            }
+        }
+
+        &.brand-applepodcasts {
+            .icon {
+                background-color: $rbtv-color-brand-applepodcasts;
+            }
+        }
+
+        &.brand-spotify {
+            .icon {
+                background-color: $rbtv-color-brand-spotify;
+            }
+        }
+
+        &.brand-xml {
+            .icon {
+                background-color: $rbtv-color-red;
+            }
+        }
+
+        &.brand-google,
+        &.brand-twitch,
+        &.brand-reddit,
+        &.brand-steam,
+        &.brand-applepodcasts,
+        &.brand-spotify,
+        &.brand-xml {
+            &:hover {
+                .icon {
+                    background-color: $rbtv-color-text-highlight;
+                    background-image: none;
+                }
+            }
+            &:active {
+                .icon {
+                    background-color: transparent;
+                }
+            }
+        }
+    }
+}
+
+
+
+/* Nav List */
+
+.nav-list {
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+    border-radius: $rbtv-borderRadius-small;
+    background-color: $rbtv-color-darkestgrey;
+
+    .btn {
+        &.nav-list-item {
+            border-radius: 0;
+            padding: $spacer $grid-gutter-width;
+
+            font-family: $rbtv-font-primary;
+            font-weight: normal;
+            text-align: left;
+
+            
+            @include media-breakpoint-down(md) {
+                padding: $spacer $grid-gutter-width/2;
+            }
+
+            &:not([disabled]):not(.disabled):not(.swiper-button-disabled) {
+                background-color: transparent;
+                color: $rbtv-color-button-default;
+
+                &:hover,
+                &:focus {
+                    background-color: $rbtv-color-text-highlight;
+                    color: $rbtv-color-black;
+                }
+                &:active,
+                &.active {
+                    background-color: $rbtv-color-blue;
+                    color: $rbtv-color-text-highlight;
+                }
+            }
+        }
+
+    }
 }
