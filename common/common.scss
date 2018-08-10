@@ -2552,7 +2552,10 @@ dl {
 }
 
 
-
+.site-header {
+    position: fixed;
+    top: 0;
+}
 
 
 
@@ -2561,9 +2564,10 @@ dl {
 .page-header {
 
     h1.box-title {
-        @include fontSize($rbtv-fontSize-large);
+        @include fontSize($rbtv-fontSize-large*1.25);
 
-        a:link {
+        a:link,
+        a:visited {
             color: $rbtv-color-text-highlight;
         }
     }

@@ -1,0 +1,54 @@
+<header class="site-header">
+	<div class="nav-container">
+		<div class="container darkBG">
+			<nav class="navbar navbar-expand-md d-flex flex-nowrap navbar-dark" role="navigation">
+
+				<div class="navbar-brand">
+					<a href="https://www.rocketbeans.tv"><img src="/assets/img/SVG/rbtv-cornerbug.svg" alt="Rocket Beans TV Logo" width="40" height="40"></a>
+				</div>
+
+				<div class="collapse navbar-collapse">
+					<ul class="navbar-nav">
+						<li class="nav-item">
+							<a class="nav-link" href="htts://www.rocketbeans.tv/sendeplan"><span>Sendeplan</span></a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="htts://www.rocketbeans.tv/mediathek"><span>Mediathek</span></a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="htts://www.rocketbeans.tv/blog"><span>Blog</span></a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="htts://www.rocketbeans.tv/bohnen"><span>Bohnen</span></a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="htts://www.rocketbeans.tv/shop"><span>Shop</span></a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link d-flex align-items-center active" href="https://forum.rocketbeans.tv"><span>Forum</span></a>
+						</li>
+						<!--
+						<li class="nav-item">
+							<a class="nav-link" [routerLink]="['/support']" [routerLinkActive]="['active']"><span>Supporte Uns</span></a>
+						</li>
+						-->
+					</ul>
+				</div>
+
+				<div class="navbar-right d-flex justify-content-end align-items-center">		
+
+					<div class="d-flex d-md-none ml-3">
+						<button class="btn btn-iconOnly" type="button" (click)="toggleMobileNav()" [ngClass]="{'active': this.mobileNav.mobileNavVisible}" aria-label="Menü">
+							<i class="rbtv-icon rbtv-menu" *ngIf="!this.mobileNav.mobileNavVisible"></i>
+							<i class="rbtv-icon rbtv-close" *ngIf="this.mobileNav.mobileNavVisible"></i>
+						</button>
+					</div>
+
+				</div>
+
+			</nav>
+		</div>
+
+	</div>
+
+</header>
