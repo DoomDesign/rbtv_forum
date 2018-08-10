@@ -2554,6 +2554,23 @@ dl {
 
 
 
+
+
+// CUSTOM ELEMENTS
+
+.page-header {
+
+    h1.box-title {
+        @include fontSize($rbtv-fontSize-large);
+
+        a:link {
+            color: $rbtv-color-text-highlight;
+        }
+    }
+}
+
+
+
 //// DISCOURSE OVERRIDES
 
 
