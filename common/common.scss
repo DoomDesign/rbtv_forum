@@ -2624,10 +2624,14 @@ dl {
             }
 
             .category-logo {
-
+                margin-bottom: 0;
             }
         }
 
+    }
+
+    .topics {
+        width: 20%;
     }
 }
 
@@ -2646,6 +2650,11 @@ table {
             
         }
     }
+}
+
+.list-cell, .table-heading, .category-list td, .category-list th {
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 
