@@ -1752,20 +1752,10 @@ $grid-breakpoints: (
             margin-right: 0;
         }
 
-        // width: 54px;
-        // height: 54px;
-        
         display: block;
         position: relative;
 
         a {
-            // display: block;
-            // position: absolute;
-            // left: 50%;
-            // top: 50%;
-            // transform: translateX(-50%) translateY(-50%);
-            
-            // transition: transform $rbtv-animationDuration/2;
 
             &:active {
                 transform: scale(0.95);
@@ -1776,37 +1766,10 @@ $grid-breakpoints: (
             border-radius: 50%;
             overflow: hidden;
 
-            // background-color: yellow;
-
-            // animation-name: shrinkToLogoSize;
-            // animation-duration: 0.5s;
-            // animation-timing-function: $rbtv-easing-snappy;
-            // animation-delay: 2.2s;
-            // animation-fill-mode: forwards;
-
             display: flex;
             align-items: center;
             justify-content: center;
 
-            // img,
-            // lottie-animation-view,
-            svg {
-                display: block;
-                // position: absolute;
-                // left: 50%;
-                // top: 50%;
-                // transform: translateX(-50%) translateY(-50%);
-                // z-index: 5000;
-
-                // width: 54px;
-                // height: 54px;
-
-                // svg {
-                //     g {
-                //         will-change: transform !important;
-                //     }
-                // }
-            }
 
             &::after {
                 content: '';
@@ -2932,6 +2895,7 @@ dl {
     position: fixed;
     top: 0;
     z-index: 9999;
+    margin-bottom: 0;
 
     #rbtvlogo {
         width: 40px;
@@ -2941,6 +2905,10 @@ dl {
         padding: 0;
         background: url($cornerbug-image) no-repeat center center;
         background-size: contain;
+    }
+
+    .navbar-nav {
+        flex-direction: row;
     }
 }
 
