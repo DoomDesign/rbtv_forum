@@ -3072,6 +3072,10 @@ ul#navigation-bar {
 /** CATEGORIES **/
 
 .category-list {
+
+    .category-list-item {
+        border-top: 0;
+    }
     tbody {
                 
         .category {
@@ -3212,6 +3216,18 @@ table {
 
 
 .mobile-view {
+
+    .category-list {
+
+        .category-list-item {
+            &:nth-child(odd) {
+                background-color: darken($rbtv-color-darkestgrey, 7.5%);
+            }
+        }
+
+    }
+
+
     #topic {
 
         .topic-post {
