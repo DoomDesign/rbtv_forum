@@ -2940,12 +2940,29 @@ dl {
     padding-right: $grid-gutter-width;
     width: 100%;
     max-width: 1200px;
+
+    &.bg-transparent {
+        background-color: transparent;
+    }
 }
 
 .d-header {
 	background-color: transparent;
     box-shadow: none;
     padding-top: 0;
+    position: fixed;
+
+    border-bottom-left-radius: $rbtv-borderRadius;
+    border-bottom-right-radius: $rbtv-borderRadius;
+}
+
+
+#main-outlet {
+    padding-top: $spacer;
+    margin-top: calc(60px + #{$spacer}/2);
+
+    border-top-left-radius: $rbtv-borderRadius;
+    border-top-right-radius: $rbtv-borderRadius;
 }
 
 
